@@ -21,7 +21,7 @@ import lombok.ToString;
 public class Bill {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer billId;
 	private LocalDateTime billdate;
 	private Integer totalItem;

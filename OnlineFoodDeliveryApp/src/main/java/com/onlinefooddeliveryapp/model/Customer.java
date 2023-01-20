@@ -23,7 +23,7 @@ import lombok.ToString;
 public class Customer {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer customerId;
 	
 	@Size(min = 3,max = 12,message = "FirstName should be between 3-12 characters")

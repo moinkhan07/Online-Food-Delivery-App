@@ -21,7 +21,7 @@ import lombok.ToString;
 public class OrderDetails {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer orderId;
 	private LocalDateTime orderDate;
 	private String orderStatus;

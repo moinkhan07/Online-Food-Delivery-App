@@ -24,7 +24,7 @@ import lombok.ToString;
 public class FoodCart {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer foodCartId;
 	
 	@OneToOne(cascade = CascadeType.ALL)
