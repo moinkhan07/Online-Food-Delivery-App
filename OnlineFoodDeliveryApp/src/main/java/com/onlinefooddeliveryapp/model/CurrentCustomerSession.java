@@ -19,7 +19,7 @@ import lombok.ToString;
 public class CurrentCustomerSession {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customerId;
 	private String customerUniqueId;
 	private LocalDateTime localDateTime;

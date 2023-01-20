@@ -17,7 +17,7 @@ import lombok.ToString;
 public class RestaurantLogin {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer restaurantId;
 	private String userName;
 	private String password;

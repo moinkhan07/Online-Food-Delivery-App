@@ -31,17 +31,33 @@ public class GlobalException {
 		
 	}
 	
+	@ExceptionHandler(RestaurantException.class)
+	public ResponseEntity<MyErrorDetails> restaurantException(RestaurantException restaurantException, WebRequest req){
+		
+		MyErrorDetails myErr = new MyErrorDetails(LocalDateTime.now(), restaurantException.getMessage(), req.getDescription(false));
+		
+		return new ResponseEntity<>(myErr,HttpStatus.BAD_REQUEST);
+		
+	}
 	
 	
+	@ExceptionHandler(ItemException.class)
+	public ResponseEntity<MyErrorDetails> itemException(ItemException itemException, WebRequest req){
+		
+		MyErrorDetails myErr = new MyErrorDetails(LocalDateTime.now(), itemException.getMessage(), req.getDescription(false));
+		
+		return new ResponseEntity<>(myErr,HttpStatus.BAD_REQUEST);
+		
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	@ExceptionHandler(CategoryException.class)
+	public ResponseEntity<MyErrorDetails> categoryException(CategoryException categoryException, WebRequest req){
+		
+		MyErrorDetails myErr = new MyErrorDetails(LocalDateTime.now(), categoryException.getMessage(), req.getDescription(false));
+		
+		return new ResponseEntity<>(myErr,HttpStatus.BAD_REQUEST);
+		
+	}
 	
 	
 	

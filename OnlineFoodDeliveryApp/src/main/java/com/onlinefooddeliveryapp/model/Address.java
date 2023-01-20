@@ -20,7 +20,7 @@ import lombok.ToString;
 public class Address {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer addressId;
 	
 	@NotNull(message = "BuildingName should not be null")
