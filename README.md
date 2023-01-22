@@ -1,2 +1,2 @@
 # Go 4 Food - Online Food Delivery System
-<img src="fast-angle-814/Assets/Food.png">
+<img src="./Assets/Food.png">
