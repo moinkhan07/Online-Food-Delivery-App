@@ -14,7 +14,7 @@
 # Services(Functionalities) : 
 <img src="./Assets/services.png">
 
-# Basic flow of functionality : 
+# Basic flow of the application : 
 - User can register
 - can login/logout
 - can view all items
