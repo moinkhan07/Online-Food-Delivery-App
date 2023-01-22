@@ -2,6 +2,8 @@ package com.onlinefooddeliveryapp.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +19,7 @@ import com.onlinefooddeliveryapp.exception.RestaurantException;
 import com.onlinefooddeliveryapp.model.Restaurant;
 import com.onlinefooddeliveryapp.service.RestaurantService;
 
-import jakarta.validation.Valid;
+
 
 @RestController
 public class RestaurantController {

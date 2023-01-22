@@ -3,6 +3,8 @@ package com.onlinefooddeliveryapp.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onlinefooddeliveryapp.exception.CustomerException;
+import com.onlinefooddeliveryapp.exception.CustomerLoginException;
 import com.onlinefooddeliveryapp.model.Customer;
 import com.onlinefooddeliveryapp.service.CustomerService;
-
-import jakarta.validation.Valid;
 
 
 @RestController
@@ -27,16 +28,22 @@ public class CustomerController {
 	@Autowired
 	private CustomerService cService;
 	
+	@Autowired
+	private CustomerLoginController customerLoginController;
+	
 	@PostMapping("/customers")
-	public ResponseEntity<Customer> saveCustomer(@Valid @RequestBody Customer customer) throws CustomerException{
-		Customer savedCustomer = cService.addCustomer(customer);
-		return new ResponseEntity<Customer>(savedCustomer,HttpStatus.CREATED);
-	}
+	public ResponseEntity<Customer> saveCustomer(@Valid @RequestBody Customer customer) throws CustomerException,CustomerLoginException{
+			Customer savedCustomer = cService.addCustomer(customer);
+			return new ResponseEntity<Customer>(savedCustomer,HttpStatus.CREATED);
+		}
 
 	@PutMapping("/customers")
-	public ResponseEntity<Customer> updateCustomerByCustomerId(@Valid @RequestBody Customer customer) throws CustomerException{
+	public ResponseEntity<Customer> updateCustomerByCustomerId(@Valid @RequestBody Customer customer) throws CustomerException, CustomerLoginException{
+		if (customerLoginController.flag == true) {
 		Customer updateCustomer = cService.updateCustomerByCustomerId(customer);
 		return new ResponseEntity<Customer>(updateCustomer,HttpStatus.OK);
+		}
+		throw new CustomerLoginException("Please login first");
 	}
 	
 	@DeleteMapping("/customers/{cid}")

@@ -1,5 +1,14 @@
 package com.onlinefooddeliveryapp.repository;
 
-public interface FoodCartRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.onlinefooddeliveryapp.model.FoodCart;
+@Repository
+public interface FoodCartRepository extends JpaRepository<FoodCart, Integer>{
+	
+	  @Query("select c from FoodCart c where customerId=?1")
+	  public FoodCart getFoodCartByCustomer(Integer customerId);
 
 }

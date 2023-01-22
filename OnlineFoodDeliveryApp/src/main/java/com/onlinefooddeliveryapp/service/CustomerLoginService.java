@@ -5,7 +5,7 @@ import com.onlinefooddeliveryapp.model.CustomerLoginDTO;
 
 public interface CustomerLoginService {
 	
-	public String customerLogin(CustomerLoginDTO dto) throws CustomerLoginException;
+	public String customerLogin(CustomerLoginDTO dto) throws CustomerLoginException,CustomerLoginException;
 	
 	public String customerLogout(String key) throws CustomerLoginException;
 
