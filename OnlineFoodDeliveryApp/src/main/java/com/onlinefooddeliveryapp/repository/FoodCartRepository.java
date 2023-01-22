@@ -8,7 +8,7 @@ import com.onlinefooddeliveryapp.model.FoodCart;
 @Repository
 public interface FoodCartRepository extends JpaRepository<FoodCart, Integer>{
 	
-	  @Query("select c from FoodCart c where customerId=?1")
+	  @Query("select c from FoodCart c where c.customer.customerId=?1")
 	  public FoodCart getFoodCartByCustomer(Integer customerId);
 
 }

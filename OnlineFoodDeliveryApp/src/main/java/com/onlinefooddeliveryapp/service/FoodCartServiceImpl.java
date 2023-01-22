@@ -2,23 +2,18 @@ package com.onlinefooddeliveryapp.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.onlinefooddeliveryapp.exception.FoodCartException;
 import com.onlinefooddeliveryapp.exception.ItemException;
-import com.onlinefooddeliveryapp.model.Customer;
 import com.onlinefooddeliveryapp.model.FoodCart;
 import com.onlinefooddeliveryapp.model.Item;
 import com.onlinefooddeliveryapp.repository.CustomerRepository;
 import com.onlinefooddeliveryapp.repository.FoodCartRepository;
 import com.onlinefooddeliveryapp.repository.ItemRepository;
-
-import ch.qos.logback.core.joran.conditional.IfAction;
 
 @Service
 public class FoodCartServiceImpl implements FoodCartService{
