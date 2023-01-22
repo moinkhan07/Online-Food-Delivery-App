@@ -59,9 +59,33 @@ public class GlobalException {
 		
 	}
 	
+	@ExceptionHandler(BillException.class)
+	public ResponseEntity<MyErrorDetails> billException(BillException billException, WebRequest req){
+		
+		MyErrorDetails myErr = new MyErrorDetails(LocalDateTime.now(), billException.getMessage(), req.getDescription(false));
+		
+		return new ResponseEntity<>(myErr,HttpStatus.BAD_REQUEST);
+		
+	}
 	
 	
+	@ExceptionHandler(FoodCartException.class)
+	public ResponseEntity<MyErrorDetails> foodCartException(FoodCartException foodCartException, WebRequest req){
+		
+		MyErrorDetails myErr = new MyErrorDetails(LocalDateTime.now(), foodCartException.getMessage(), req.getDescription(false));
+		
+		return new ResponseEntity<>(myErr,HttpStatus.BAD_REQUEST);
+		
+	}
 	
+	@ExceptionHandler(OrderDetailsException.class)
+	public ResponseEntity<MyErrorDetails> orderDeatilsException(OrderDetailsException orderDetailsException, WebRequest req){
+		
+		MyErrorDetails myErr = new MyErrorDetails(LocalDateTime.now(), orderDetailsException.getMessage(), req.getDescription(false));
+		
+		return new ResponseEntity<>(myErr,HttpStatus.BAD_REQUEST);
+		
+	}
 	
 	
 	

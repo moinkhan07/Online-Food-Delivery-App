@@ -47,7 +47,7 @@ public class CustomerLoginServiceImpl implements CustomerLoginService{
 			
 			CurrentCustomerSession currentCustomerSession = new CurrentCustomerSession(existingCustomer.getCustomerId(), key, LocalDateTime.now());
 			csRepository.save(currentCustomerSession);
-			return currentCustomerSession.toString();
+			return "Login Successfully!";
 		}
 		throw new CustomerLoginException("Please Enter a valid password");
 	}
